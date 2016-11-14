@@ -1,7 +1,7 @@
 <?php
 /** 
  * mm_ddCreateSection
- * @version 1.0 (2013-05-22)
+ * @version 1.1 (2016-11-15)
  * 
  * @desc A widget for ManagerManager plugin that allows to create a new custom section within the document editing page.
  * 
@@ -15,9 +15,9 @@
  * @param $params['roles'] {string_commaSeparated} — The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
  * @param $params['templates'] {string_commaSeparated} — Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
  * 
- * @link http://code.divandesign.biz/modx/mm_ddcreatesection/1.0
+ * @link http://code.divandesign.biz/modx/mm_ddcreatesection/1.1
  * 
- * @copyright 2013 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2013–2016 DivanDesign {@link http://www.DivanDesign.biz }
  */
 
 function mm_ddCreateSection($params){
