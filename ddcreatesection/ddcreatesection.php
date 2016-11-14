@@ -5,6 +5,7 @@
  * 
  * @desc A widget for ManagerManager plugin that allows to create a new custom section within the document editing page.
  * 
+ * @uses PHP >= 5.4.
  * @uses MODXEvo.plugin.ManagerManager >= 0.5.
  * 
  * @param $title {string} — The display name of the new section. @required
@@ -47,7 +48,7 @@ function mm_ddCreateSection(
 		';
 		//tabGeneral
 		// Clean up for js output
-		$section = str_replace(array("\n", "\t", "\r"), '', $section);
+		$section = str_replace(["\n", "\t", "\r"], '', $section);
 		
 		$output .= '$j("#'.$tabId.'").append(\''.$section.'\');';
 		
