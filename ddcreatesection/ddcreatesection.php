@@ -8,8 +8,8 @@
  * @uses PHP >= 5.4.
  * @uses MODXEvo.plugin.ManagerManager >= 0.5.
  * 
- * @param $title {string} — The display name of the new section. @required
- * @param $id {string} — A unique ID for this section. @required
+ * @param $sectionTitle {string} — The display name of the new section. @required
+ * @param $sectionId {string} — A unique ID for this section. @required
  * @param $tabId {string} — The ID of the tab which the section should be inserted to. Can be one of the default tab IDs or a new custom tab created with mm_createTab. Default: 'general'.
  * @param $roles {string_commaSeparated} — The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
  * @param $templates {string_commaSeparated} — Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
@@ -20,8 +20,8 @@
  */
 
 function mm_ddCreateSection(
-	$title,
-	$id,
+	$sectionTitle,
+	$sectionId,
 	$tabId = 'general',
 	$roles = '',
 	$templates = ''
@@ -32,19 +32,19 @@ function mm_ddCreateSection(
 	if (
 		$e->name == 'OnDocFormRender' &&
 		useThisRule($roles, $templates) &&
-		!empty($id)
+		!empty($sectionId)
 	){
 		// We always put a JS comment, which makes debugging much easier
 		$output = '//---------- mm_ddCreateSection :: Begin -----'.PHP_EOL;
 		
-		if ($title == ''){$title = $id;}
+		if ($sectionTitle == ''){$sectionTitle = $sectionId;}
 		
-		$id = prepareSectionId($id);
+		$sectionId = prepareSectionId($sectionId);
 		$tabId = prepareTabId($tabId);
 		
 		$section = '
-<div class="sectionHeader" id="'.$id.'_header">'.$title.'</div>
-<div class="sectionBody" id="'.$id.'_body"><table style="position:relative;" border="0" cellspacing="0" cellpadding="3" width="100%"></table></div>
+<div class="sectionHeader" id="'.$sectionId.'_header">'.$sectionTitle.'</div>
+<div class="sectionBody" id="'.$sectionId.'_body"><table style="position:relative;" border="0" cellspacing="0" cellpadding="3" width="100%"></table></div>
 		';
 		//tabGeneral
 		// Clean up for js output
